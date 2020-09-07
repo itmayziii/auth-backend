@@ -1,0 +1,14 @@
+# Dependencies #
+node_modules/
+
+# IDEs #
+.idea/
+
+# Local Data - docker volumes for databases, etc... #
+data/
+
+# Build Output #
+dist/
+
+# Environment Specific #
+.env
