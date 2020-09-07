@@ -50,7 +50,7 @@ export interface Client {
    */
   redirectURIs: Array<Scalars['String']>
   /** How many times has the client authenticated with this authorization server. */
-  timesAuthenticated: Scalars['Int']
+  loginCount: Scalars['Int']
 }
 
 /** https://tools.ietf.org/html/rfc6749#section-2 */
@@ -229,7 +229,7 @@ export type ClientResolvers<ContextType = any, ParentType extends ResolversParen
   type?: Resolver<ResolversTypes['ClientType'], ParentType, ContextType>
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
   redirectURIs?: Resolver<Array<ResolversTypes['String']>, ParentType, ContextType>
-  timesAuthenticated?: Resolver<ResolversTypes['Int'], ParentType, ContextType>
+  loginCount?: Resolver<ResolversTypes['Int'], ParentType, ContextType>
   __isTypeOf?: IsTypeOfResolverFn<ParentType>
 }>
 

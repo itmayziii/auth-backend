@@ -38,7 +38,7 @@ export default gql`
     """${clientComments.redirectURIs}""" # It would be nice if we could have a URI scalar to ensure proper formatting.
     redirectURIs: [String!]!
     """How many times has the client authenticated with this authorization server."""
-    timesAuthenticated: Int!
+    loginCount: Int!
   }
 
   """https://tools.ietf.org/html/rfc6749#section-2"""

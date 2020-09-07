@@ -9,7 +9,7 @@ const registerClient: MutationResolvers<Context>['registerClient'] = async funct
           name: 'Tommy client',
           type: ClientType.Public,
           redirectURIs: ['hello'],
-          timesAuthenticated: 3
+          loginCount: 3
         }
       }
     })

@@ -16,13 +16,12 @@
     "clean-dist": "rm -rf dist/*",
     "preknex": "npm run build",
     "knex": "knex --knexfile ./dist/db/knexfile.js --env default",
-    "generate": "graphql-codegen --config codegen.yaml"
+    "generateTypes": "graphql-codegen --config codegen.yaml"
   },
   "author": "Tommy May III <tommymay37@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@graphql-codegen/cli": "~1.17.8",
-    "@graphql-codegen/introspection": "1.17.8",
     "@graphql-codegen/typescript": "1.17.8",
     "@graphql-codegen/typescript-resolvers": "1.17.8",
     "@graphql-tools/load-files": "~6.1.0",
