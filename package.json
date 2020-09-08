@@ -15,7 +15,6 @@
     "build": "tsc --project tsconfig.json",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "clean-dist": "rm -rf dist/*",
-    "preknex": "npm run build",
     "knex": "knex --knexfile ./dist/db/knexfile.js --env default",
     "generateTypes": "graphql-codegen --config codegen.yaml"
   },

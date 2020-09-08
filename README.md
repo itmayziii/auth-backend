@@ -24,11 +24,12 @@ i.e.
 
 #### 3. Run Database Migrations
 We use migration to manage database schema changes through code instead of ad-hoc making changes. We are using
-[knex](http://knexjs.org/#Migrations) to run these migrations `npm run knex -- migrate:latest`.
+[knex](http://knexjs.org/#Migrations) to run these migrations `docker exec -it auth_backend bash -c "npm run knex -- migrate:latest"`.
 
 ### Useful Tips
 #### Creating New DB Migrations
-You can use knex to create new migrations, just run `npm run knex -- migrate:make migration_name && cp dist/db/migrations/*.ts src/db/migrations`.
+You can use knex to create new migrations, just run
+`docker exec -it auth_backend bash -c "npm run knex -- migrate:make migrations_name" && mv dist/db/migrations/*.ts src/db/migrations`.
 
 * _It would be nice if we didn't have to copy the files from the `dist` directory, but I have not found a workaround to this.
 The issue comes down to our knex `migration.directory` needing to be different for generating migrations into `src` vs executing
