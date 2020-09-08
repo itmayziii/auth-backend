@@ -28,7 +28,11 @@ We use migration to manage database schema changes through code instead of ad-ho
 
 ### Useful Tips
 #### Creating New DB Migrations
-You can use knex to create new migrations, just run `npm run knex -- migrate:make migration_name`
+You can use knex to create new migrations, just run `npm run knex -- migrate:make migration_name && cp dist/db/migrations/*.ts src/db/migrations`.
+
+* _It would be nice if we didn't have to copy the files from the `dist` directory, but I have not found a workaround to this.
+The issue comes down to our knex `migration.directory` needing to be different for generating migrations into `src` vs executing
+migrations from `dist`._
 
 #### GraphQL Schema -> Typescript Definitions
 Instead of creating Typescript interfaces manually for our GraphQL schema we can use [graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
