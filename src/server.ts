@@ -6,9 +6,8 @@ import { typeDefs } from './graphql/type-defs'
 import { resolvers } from './graphql/resolvers'
 import { authenticateMiddleware } from './middleware/authenticate'
 import { AppLocals } from './interfaces/express-locals'
-import knex from 'knex'
 import { context } from './graphql/context'
-import fetchConfiguration from './db/knexfile'
+import { getDBConnection } from './db/connection'
 
 Promise.all([typeDefs(), resolvers(), getAppLocals()])
   .then(([typeDefs, resolvers, appLocals]) => {
@@ -45,14 +44,8 @@ function applyGlobalMiddleware (app: express.Application, graphQLServer: ApolloS
 }
 
 async function getAppLocals (): Promise<AppLocals> {
-  return await fetchConfiguration()
-    .then(dbConfig => {
-      const db = knex(dbConfig.default)
-      db.on('query', function () {
-        console.log(arguments)
-      })
-      return {
-        db
-      }
-    })
+  return await getDBConnection()
+    .then(db => ({
+      db
+    }))
 }

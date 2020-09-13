@@ -41,6 +41,10 @@ You can use knex to create new migrations, just run
 The issue comes down to our knex `migration.directory` needing to be different for generating migrations into `src` vs executing
 migrations from `dist`._
 
+#### Test Data
+Check out the [README in the seeds directory](./src/db/seeds/README.md) for the documentation on how to generate fake 
+data for testing.
+
 #### GraphQL Schema -> Typescript Definitions
 Instead of creating Typescript interfaces manually for our GraphQL schema we can use [graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
 to do this work for us. Once you modify the schema in [type-defs](./src/graphql/type-defs/) then you should be able to run
