@@ -24,7 +24,13 @@ i.e.
 
 #### 3. Run Database Migrations
 We use migration to manage database schema changes through code instead of ad-hoc making changes. We are using
-[knex](http://knexjs.org/#Migrations) to run these migrations `docker exec -it auth_backend bash -c "npm run knex -- migrate:latest"`.
+[knex](http://knexjs.org/#Migrations) to run these migrations.
+
+* Bring all migrations up - `docker exec -it auth_backend bash -c "npm run knex -- migrate:latest"`
+* Rollback all migrations - `docker exec -it auth_backend bash -c "npm run knex -- migrate:rollback --all"`
+* Bring next migration up - `docker exec -it auth_backend bash -c "npm run knex -- migrate:up"`
+* Rollback last migration - `docker exec -it auth_backend bash -c "npm run knex -- migrate:rollback"`
+* List migrations status - `docker exec -it auth_backend bash -c "npm run knex -- migrate:status"`
 
 ### Useful Tips
 #### Creating New DB Migrations

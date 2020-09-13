@@ -46,7 +46,13 @@ function applyGlobalMiddleware (app: express.Application, graphQLServer: ApolloS
 
 async function getAppLocals (): Promise<AppLocals> {
   return await fetchConfiguration()
-    .then(dbConfig => ({
-      db: knex(dbConfig.default)
-    }))
+    .then(dbConfig => {
+      const db = knex(dbConfig.default)
+      db.on('query', function () {
+        console.log(arguments)
+      })
+      return {
+        db
+      }
+    })
 }

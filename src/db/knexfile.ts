@@ -19,6 +19,10 @@ export default async function fetchConfiguration (): Promise<{ default: Config }
             directory: path.resolve(__dirname, 'migrations'),
             tableName: 'migrations',
             extension: 'ts'
+          },
+          seeds: {
+            directory: path.resolve(__dirname, 'seeds'),
+            extension: 'ts'
           }
         }
       }
