@@ -12,3 +12,7 @@ dist/
 
 # Environment Specific #
 .env
+
+# Testing
+coverage/
+.nyc_output/
