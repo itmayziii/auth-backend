@@ -21,6 +21,7 @@
     "dist/interfaces",
     "dist/db/seeds",
     "dist/db/migrations",
+    "dist/db/knexfile.js",
     "/dist/graphql/type-defs/.*"
   ]
 }
