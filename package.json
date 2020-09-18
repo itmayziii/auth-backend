@@ -2,7 +2,7 @@
   "name": "auth-backend",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/server.js",
+  "main": "dist/index.js",
   "scripts": {
     "prestart": "npm run clean-dist && npm run build",
     "start": "concurrently -n tsc,service \"npm run build:watch -- --preserveWatchOutput\" \"docker-compose up\"",

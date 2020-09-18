@@ -6,7 +6,7 @@
     "ts"
   ],
   "collectCoverageFrom": [
-    "**/*.js"
+    "dist/**/*.js"
   ],
   "coverageThreshold": {
     "global": {

@@ -4,7 +4,7 @@ const path = require('path')
 module.exports = {
   apps: [{
     name: 'auth-backend',
-    script: 'dist/server.js',
+    script: 'dist/index.js',
     instances: 1,
     autorestart: true,
     watch: process.env.NODE_ENV !== 'production' ? [path.resolve(__dirname, 'dist')] : false,
