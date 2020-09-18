@@ -1,0 +1,19 @@
+{
+  "testEnvironment": "node",
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "collectCoverageFrom": [
+    "**/*.js"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 50,
+      "lines": 50,
+      "functions": 50,
+      "statements": 50
+    }
+  }
+}

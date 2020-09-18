@@ -1,11 +1,11 @@
 import * as Knex from 'knex'
 import { tenantFactory } from '../seed-utils'
-import { Tenant } from '../../interfaces/models/tenant'
 import { callTimes } from '../../utils/function'
 
-export async function seed (knex: Knex): Promise<Tenant[]> {
-  return await knex.table('tenant').del()
-    .then(() => {
-      return knex.table('tenant').insert(callTimes(tenantFactory, 50))
+export async function seed (knex: Knex): Promise<Knex.QueryBuilder> {
+  return await callTimes(tenantFactory, 50)
+    .then(async (fakeTenants) => {
+      return await knex.table('tenant').del()
+        .then(() => knex.table('tenant').insert(fakeTenants))
     })
 }

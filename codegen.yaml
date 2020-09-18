@@ -5,6 +5,10 @@ generates:
   src/interfaces/graphql-schema.ts:
     config:
       useIndexSignature: true
+      scalars:
+        DateTime: Date
+        Date: Date
+        Time: String
     plugins:
       - "typescript"
       - "typescript-resolvers"

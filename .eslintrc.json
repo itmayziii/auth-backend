@@ -1,6 +1,11 @@
 {
-  "extends": "standard-with-typescript",
+  "extends": ["standard-with-typescript", "plugin:jest/all"],
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "plugins": ["jest"],
+  "rules": {
+    // Honestly this rule is just stupid considering Jest recommends you return promises for async code.
+    "jest/no-test-return-statement": "off"
   }
 }

@@ -6,7 +6,10 @@ const registerClient: MutationResolvers<Context>['registerClient'] = async funct
     .then(result => {
       return {
         client: {
+          ID: 'blah',
           name: 'Tommy client',
+          createdAt: new Date(),
+          updatedAt: new Date(),
           type: ClientType.Public,
           redirectURIs: ['hello'],
           loginCount: 3

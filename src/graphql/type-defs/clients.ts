@@ -1,4 +1,5 @@
 import { gql } from 'apollo-server-express'
+import { createdAtComment, updatedAtComment, UUIDComment } from './common'
 
 const clientComments = {
   name: 'Client name which should be a human readable way to quickly identify a client.',
@@ -29,8 +30,14 @@ export default gql`
   }
 
   type Client {
+    """${UUIDComment}"""
+    ID: ID!
     """${clientComments.name}"""
     name: String!
+    """${createdAtComment('client')}"""
+    createdAt: DateTime!
+    """${updatedAtComment('client')}"""
+    updatedAt: DateTime!
     """${clientComments.type}"""
     type: ClientType!
     """${clientComments.description}"""

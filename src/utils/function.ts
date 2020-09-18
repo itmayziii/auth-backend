@@ -5,11 +5,11 @@
  * @param times - Number of times to call the function "fn"
  * @returns T - Returns the result of calling "fn" in an array of "times" length.
  */
-export function callTimes<T> (fn: () => T, times: number): T[] {
-  let data: T[] = []
+export async function callTimes<T> (fn: () => T | Promise<T>, times: number): Promise<T[]> {
+  let data: Array<Promise<T>> = []
   for (let i = 0; i < times; i++) {
-    data = [...data, fn()]
+    data = [...data, Promise.resolve(fn())]
   }
 
-  return data
+  return await Promise.all(data)
 }
