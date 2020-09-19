@@ -9,10 +9,10 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') })
 
 export default async function fetchConfiguration (): Promise<{ default: Config }> {
   return await getDBConfig()
-    .then(({ connection, pool }) => {
+    .then(({ client, connection, pool }) => {
       return {
         default: {
-          client: 'postgresql',
+          client,
           connection,
           pool,
           migrations: {

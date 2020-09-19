@@ -17,6 +17,7 @@ export function up (knex: Knex): Knex.SchemaBuilder {
       table.timestamps()
       table.string('name', 255).notNullable()
       table.uuid('tenant_id').references('tenant.id').notNullable()
+      table.unique(['name', 'tenant_id'])
     })
     .createTable('api_client', table => {
       table.increments('id').primary().notNullable()

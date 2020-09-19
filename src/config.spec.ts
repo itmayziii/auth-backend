@@ -12,6 +12,7 @@ describe('getDBConfig', () => {
     return await getDBConfig()
       .then(actual => {
         expect(actual).toStrictEqual({
+          client: 'postgresql',
           connection: {
             host: 'localhost',
             database: 'testing',
