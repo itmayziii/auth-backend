@@ -23,6 +23,10 @@ export function randomItem<T> (someArray: T[]): T|null {
  * @returns a random subset of "someArray"
  */
 export function randomItems<T> (someArray: T[], max: number, condition?: (existingItem: T, newItem: T) => boolean): T[] {
+  if (max === 0) {
+    return []
+  }
+
   const amount = Math.floor(Math.random() * max) + 1
   let randomItems: T[] = []
   for (let i = 0; i < amount; i++) {
