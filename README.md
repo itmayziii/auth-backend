@@ -75,7 +75,7 @@ Instead of creating Typescript interfaces manually for our GraphQL schema we can
 to do this work for us. Once you modify the schema in [type-defs](./src/graphql/type-defs/) then you should be able to run
 `npm run generateTypes` to generate a new [schema interface](./src/interfaces/graphql-schema.ts) file.
 
-### Helpful Readings
+## Helpful Resources
 * [JWT RFC](https://tools.ietf.org/html/rfc7519)
 * [JWS RFC](https://www.rfc-editor.org/rfc/rfc7515)
 * [IANA JWT Claim Registry](https://www.iana.org/assignments/jwt/jwt.xhtml)
