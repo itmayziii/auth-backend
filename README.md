@@ -5,7 +5,10 @@
 #### 1. Install Dependencies
 Run `npm install`
 
-#### 2. Start Application Services (node app, database, etc...)
+#### 2. Setup Configuration (TODO replace with secret management service)
+Run `cp .env.example .env` to create a `.env` file that configuration is relying upon. 
+
+#### 3. Start Application Services (node app, database, etc...)
 Run `npm run start` - this should run docker with Typescript in watch mode, so code compilation and server restarting
 should happen automatically when a file changes. You should see the output of `npm run start` let you know when the
 server is ready after changes.
@@ -22,7 +25,7 @@ i.e.
 [service] auth_backend | Authorization server running at http://localhost:3000
 ```
 
-#### 3. Run Database Migrations
+#### 4. Run Database Migrations
 We use migration to manage database schema changes through code instead of ad-hoc making changes. We are using
 [knex](http://knexjs.org/#Migrations) to run these migrations.
 
