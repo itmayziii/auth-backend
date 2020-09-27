@@ -1,0 +1,24 @@
+{
+  "testEnvironment": "node",
+  "testMatch": [
+    "**/*.ispec.js"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "collectCoverage": true,
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "lines": 80,
+      "functions": 80,
+      "statements": 80
+    }
+  },
+  "collectCoverageFrom": [
+    "dist/graphql/resolvers/**/*",
+    "dist/handlers/**/*"
+  ]
+}

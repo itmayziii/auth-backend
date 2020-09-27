@@ -5,23 +5,26 @@
     "json",
     "ts"
   ],
+  "collectCoverage": true,
+  "coverageThreshold": {
+    "global": {
+      "branches": 60,
+      "lines": 60,
+      "functions": 60,
+      "statements": 60
+    }
+  },
   "collectCoverageFrom": [
     "dist/**/*.js"
   ],
-  "coverageThreshold": {
-    "global": {
-      "branches": 50,
-      "lines": 50,
-      "functions": 50,
-      "statements": 50
-    }
-  },
   "coveragePathIgnorePatterns": [
     "/node_modules/",
     "dist/interfaces",
     "dist/db/seeds",
     "dist/db/migrations",
     "dist/db/knexfile.js",
-    "/dist/graphql/type-defs/.*"
+    "/dist/graphql/type-defs/.*",
+    "/dist/graphql/resolvers/.*",
+    "/dist/handlers/.*"
   ]
 }

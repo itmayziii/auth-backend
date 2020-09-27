@@ -4,6 +4,7 @@ import { API } from '../interfaces/models/api'
 import { Client } from '../interfaces/models/client'
 import * as Knex from 'knex'
 import { callTimes } from '../utils/function'
+import { randomItem } from '../utils/array'
 
 export async function tenantFactory (howMany: number = 1): Promise<Tenant[]> {
   return await callTimes(() => ({
@@ -32,7 +33,9 @@ export async function clientFactory (knex: Knex, tenantID: string, howMany: numb
       created_at: faker.date.recent(5),
       updated_at: faker.date.future(),
       name: `${faker.hacker.noun()} - ${faker.random.number()}`,
-      tenant_id: tenantID
+      tenant_id: tenantID,
+      description: faker.random.words(),
+      type: randomItem(['public', 'confidential'])
     }
   }, howMany)
 }

@@ -32,6 +32,28 @@ We use migration to manage database schema changes through code instead of ad-ho
 * Rollback last migration - `docker exec -it auth_backend bash -c "npm run knex -- migrate:rollback"`
 * List migrations status - `docker exec -it auth_backend bash -c "npm run knex -- migrate:status"`
 
+### Tests
+Testing is a very important part of this codebase. We are not dealing with creating some website or utility package, we
+are dealing with a real person's identity on the internet and therefore security and testing need to be a priority.
+
+**Since we are using typescript you should make sure your changes are actually compiling before running the tests or 
+else you won't see your changes reflected in the test output. The easiest way to do this is to run the application with `npm run start`, 
+since this will auto recompile typescript for you. Alternatively you will need to run `npm run build` before running your tests.**
+
+#### Unit Tests
+Run unit tests with `npm run test:unit`, you can also run them in _watch_ mode for faster compilation times `npm run test:unit:watch`.
+
+#### Integration Tests
+Integration tests are a little more involved since we rely on external resources like a database. The easiest way to run
+the tests locally right now in the `backend` docker container `docker exec -it auth_backend bash -c "SERVER_PORT=4455 npm run test:integration"`.
+This is because the connection credentials to the database are using docker networking like `host=db` instead of `host=127.0.0.1`,
+so it is easier to run the tests from within the container to avoid changing the database credentials.
+
+Right now running Jest with `--forceExit` because of [this issue](https://github.com/facebook/jest/issues/9473).
+This is weird because we are closing the Node server with `server.close()` in an `afterAll` hook.
+
+**Make sure you have the app running first with `npm run start`.**
+
 ### Useful Tips
 #### Creating New DB Migrations
 You can use knex to create new migrations, just run
@@ -41,7 +63,7 @@ You can use knex to create new migrations, just run
 The issue comes down to our knex `migration.directory` needing to be different for generating migrations into `src` vs executing
 migrations from `dist`._
 
-#### Test Data
+#### Fake Data
 Check out the [README in the seeds directory](./src/db/seeds/README.md) for the documentation on how to generate fake 
 data for testing.
 

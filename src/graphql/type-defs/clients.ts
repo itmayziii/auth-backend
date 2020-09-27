@@ -32,12 +32,12 @@ export default gql`
   type Client {
     """${UUIDComment}"""
     ID: ID!
-    """${clientComments.name}"""
-    name: String!
     """${createdAtComment('client')}"""
     createdAt: DateTime!
     """${updatedAtComment('client')}"""
     updatedAt: DateTime!
+    """${clientComments.name}"""
+    name: String!
     """${clientComments.type}"""
     type: ClientType!
     """${clientComments.description}"""

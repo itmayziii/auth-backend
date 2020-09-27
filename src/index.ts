@@ -8,8 +8,12 @@ import { ApolloServer } from 'apollo-server-express'
 import { AppLocals } from './interfaces/express-locals'
 import { getDBConnection } from './db/connection'
 import { getDBConfig } from './config'
+import dotenv from 'dotenv'
+import path from 'path'
 
-Promise.all([typeDefs(), resolvers(), getAppLocals()])
+dotenv.config({ path: path.resolve(__dirname, '../.env') })
+
+export default Promise.all([typeDefs(), resolvers(), getAppLocals()])
   .then(([typeDefs, resolvers, appLocals]) => {
     const app = express()
     const graphQLServer = new ApolloServer({
@@ -20,7 +24,7 @@ Promise.all([typeDefs(), resolvers(), getAppLocals()])
       playground: true
     })
 
-    startServer(graphQLServer, app, appLocals)
+    return startServer(graphQLServer, app, appLocals)
   })
   .catch(error => {
     console.error(error)

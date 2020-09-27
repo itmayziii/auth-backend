@@ -26,6 +26,7 @@ services:
       POSTGRES_DB: auth
     volumes:
       - ./data/db:/var/lib/postgresql/data
+      - ./docker/local:/docker-entrypoint-initdb.d
     networks:
       - default
 

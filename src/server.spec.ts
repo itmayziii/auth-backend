@@ -52,6 +52,7 @@ describe('startServer', () => {
 
     const { fakeGraphQLServer, fakeExpressApplication } = createFakeData()
     const fakeAppLocals: AppLocals = { testing: 'auth testing' } as any
+    process.env.SERVER_PORT = '3000'
     startServer(fakeGraphQLServer, fakeExpressApplication, fakeAppLocals)
     expect(fakeExpressApplication.listen).toHaveBeenCalledWith(3000, expect.any(Function))
   })

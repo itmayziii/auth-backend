@@ -17,6 +17,8 @@ export function up (knex: Knex): Knex.SchemaBuilder {
       table.timestamps()
       table.string('name', 255).notNullable()
       table.uuid('tenant_id').references('tenant.id').notNullable()
+      table.string('description', 400).nullable()
+      table.enum('type', ['public', 'confidential'], { useNative: true, enumName: 'client_type' }).notNullable()
       table.unique(['name', 'tenant_id'])
     })
     .createTable('api_client', table => {
@@ -65,6 +67,7 @@ export function down (knex: Knex): Knex.SchemaBuilder {
     .dropTable('user')
     .dropTable('api_client')
     .dropTable('client')
+    .raw('DROP TYPE client_type;')
     .dropTable('api')
     .dropTable('tenant')
 }
